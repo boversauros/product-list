@@ -12,13 +12,11 @@ export const Row = styled.div`
 `
 
 export const Column = styled.div`
-  height: 550px;
-  flex-basis: 20%;
+  height: 100%;
+  flex-basis: 25%;
   -ms-flex: auto;
   width: 259px;
   position: relative;
-  background: lightblue;
-  border: 1px solid tomato;
   padding: 10px;
   box-sizing: border-box;
 

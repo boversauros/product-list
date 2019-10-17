@@ -1,5 +1,6 @@
 import React from 'react'
 import { GlobalStyle } from './styles/GlobalStyle'
+import { Card } from './components/Card'
 import { Container, Row, Column, Title } from './styles/Layout'
 
 export const App = () => {
@@ -9,16 +10,9 @@ export const App = () => {
       <Title>Product List</Title>
       <Container>
         <Row>
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
-          <Column />
+          <Column>
+            <Card />
+          </Column>
         </Row>
       </Container>
     </div>
