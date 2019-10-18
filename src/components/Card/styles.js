@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardContainer = styled.article`
   background: #ffffff;
-  height: auto;
+  height: 410px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   transition: all 0.3s linear 0s;
 

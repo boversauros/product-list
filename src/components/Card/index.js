@@ -9,26 +9,25 @@ import {
   OfferPrice
 } from './styles'
 
-export const Card = () => {
-  const url =
-    'https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
-
+export const Card = ({ product = {} }) => {
   return (
     <CardContainer>
-      <Ribbon>
-        <span>Sale</span>
-      </Ribbon>
-      <Img src={url} alt='test' />
+      {product.eyecatcher &&
+        <Ribbon>
+          <span>{product.eyecatcher}</span>
+        </Ribbon>}
+      <Img src={product.image} alt='test' />
       <ContentContainer>
         <InfoContainer>
-          <h3>Product Name</h3>
-          <h4>Brand Name</h4>
+          <h3>{product.name}</h3>
+          <h4>{product.brand}</h4>
         </InfoContainer>
         <PriceContainer>
-          <OfferPrice>
-            <strike>750 €</strike>
-          </OfferPrice>
-          <p>600 €</p>
+          {product.eyecatcher &&
+            <OfferPrice>
+              <strike> {product.price}€</strike>
+            </OfferPrice>}
+          <p>{product.eyecatcher ? product.priceSale : product.price} €</p>
         </PriceContainer>
       </ContentContainer>
     </CardContainer>
