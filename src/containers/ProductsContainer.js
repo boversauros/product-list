@@ -5,6 +5,7 @@ import { ListOfProducts } from '../components/ListOfProducts'
 export const ProductsContainer = () => {
   const [loading, setLoading] = useState(false)
   const [products, setProducts] = useState([])
+
   useEffect(() => {
     const getProducts = async () => {
       try {

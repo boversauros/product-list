@@ -1,8 +1,8 @@
 import styled from 'styled-components'
+import { fadeIn } from '../../styles/animation'
 
 export const CardContainer = styled.article`
   background: #ffffff;
-  height: 410px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   transition: all 0.3s linear 0s;
 
@@ -32,6 +32,9 @@ export const Ribbon = styled.div`
     text-align: center;
   }
 `
+export const MediaContainer = styled.div`
+  ${fadeIn({ time: '2s' })};
+`
 
 export const Img = styled.img`
   width: 100%;
@@ -40,6 +43,7 @@ export const Img = styled.img`
 
 export const ContentContainer = styled.div`
   padding: 1rem;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;

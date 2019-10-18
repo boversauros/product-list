@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNearScreen } from '../../hooks/useNearScreen'
 import {
   CardContainer,
   Img,
@@ -6,17 +7,23 @@ import {
   ContentContainer,
   InfoContainer,
   PriceContainer,
+  MediaContainer,
   OfferPrice
 } from './styles'
 
 export const Card = ({ product = {} }) => {
+  const [show, ref] = useNearScreen()
+
   return (
-    <CardContainer>
-      {product.eyecatcher &&
-        <Ribbon>
-          <span>{product.eyecatcher}</span>
-        </Ribbon>}
-      <Img src={product.image} alt='test' />
+    <CardContainer ref={ref}>
+      {show &&
+        <MediaContainer>
+          {product.eyecatcher &&
+            <Ribbon>
+              <span>{product.eyecatcher}</span>
+            </Ribbon>}
+          <Img src={product.image} alt={product.name} />
+        </MediaContainer>}
       <ContentContainer>
         <InfoContainer>
           <h3>{product.name}</h3>
