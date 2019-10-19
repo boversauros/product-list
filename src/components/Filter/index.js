@@ -7,10 +7,13 @@ export const Filter = ({ sort }) => {
     <Container>
       <Row>
         <Select onChange={e => sort(e.target.value)}>
-          <option value='0'>Sort by..</option>
+          <option value='none'>Sort by..</option>
           <option value='price'>Price</option>
+          <option value='price_desc'>Price desc</option>
           <option value='name'>Name</option>
+          <option value='name_desc'>Name desc</option>
           <option value='eyecatcher'>EyeCatcher</option>
+          <option value='eyecatcher_desc'>EyeCatcher desc</option>
         </Select>
       </Row>
     </Container>
