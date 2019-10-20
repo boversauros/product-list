@@ -20,21 +20,21 @@ export const Card = ({ product = {} }) => {
         <MediaContainer>
           {product.eyecatcher &&
             <Ribbon>
-              <span>{product.eyecatcher}</span>
+              <span>Erbjudande</span>
             </Ribbon>}
           <Img src={product.image} alt={product.name} />
         </MediaContainer>}
       <ContentContainer>
         <InfoContainer>
+          <p>{product.brand}</p>
           <h3>{product.name}</h3>
-          <h4>{product.brand}</h4>
         </InfoContainer>
-        <PriceContainer>
+        <PriceContainer isSale={!!product.eyecatcher}>
+          <p>{product.eyecatcher ? product.priceSale : product.price} :-</p>
           {product.eyecatcher &&
             <OfferPrice>
-              <strike> {product.price}€</strike>
+              <strike>istället för {product.price} :-</strike>
             </OfferPrice>}
-          <p>{product.eyecatcher ? product.priceSale : product.price} €</p>
         </PriceContainer>
       </ContentContainer>
     </CardContainer>

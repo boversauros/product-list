@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row } from '../../styles/Layout'
+import { Container, Row } from '../../styles/GlobalComponents'
 import { Select } from './styles'
 
 export const Filter = ({ sort }) => {
@@ -7,13 +7,13 @@ export const Filter = ({ sort }) => {
     <Container>
       <Row>
         <Select onChange={e => sort(e.target.value)}>
-          <option value='none'>Sort by..</option>
-          <option value='price'>Price</option>
-          <option value='price_desc'>Price desc</option>
-          <option value='name'>Name</option>
-          <option value='name_desc'>Name desc</option>
-          <option value='eyecatcher'>EyeCatcher</option>
-          <option value='eyecatcher_desc'>EyeCatcher desc</option>
+          <option value='none'>Sortera efter..</option>
+          <option value='price'>Pris uppstigande</option>
+          <option value='price_desc'>Pris avstigande</option>
+          <option value='name'>A - Z</option>
+          <option value='name_desc'>Z - A</option>
+          <option value='eyecatcher'>Erbjudande uppstigande</option>
+          <option value='eyecatcher_desc'>Erbjudande avstigande</option>
         </Select>
       </Row>
     </Container>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Column } from '../../styles/Layout'
+import { Container, Row, Column } from '../../styles/GlobalComponents'
 import { Card } from '../Card'
 
 export const ListOfProducts = ({ products = [] }) => {

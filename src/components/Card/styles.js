@@ -13,20 +13,22 @@ export const CardContainer = styled.article`
 `
 
 export const Ribbon = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   overflow: hidden;
+  margin-top: 10px;
+    margin-left: 10px;
   position: absolute;
 
   & span {
     position: absolute;
     display: block;
     width: 100%;
+    font-size: 14px;
     padding: 15px 0;
-    background-color: #ec008c;
+    background-color: #F79105;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     color: #fff;
-    font: 700 18px/1 "Lato", sans-serif;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     text-align: center;
@@ -50,24 +52,24 @@ export const ContentContainer = styled.div`
 `
 
 export const InfoContainer = styled.div`
-  width: 75%;
+  width: 65%;
   & h3 {
     font-size: 22px;
     margin-bottom: 0;
   }
-  & h4 {
+  & p {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 18px;
-    color: lightgray;
+    font-size: 16px;
+    color: #B8B6B5;
     font-weight: normal;
   }
 `
 
 export const PriceContainer = styled.div`
-  width: 25%;
+  width: 30%;
   & p {
-    color: #ec008c;
+    color: ${props => props.isSale ? '#E62229' : '#222123'};
     font-size: 22px;
     font-weight: 600;
     margin: 0;
@@ -75,5 +77,6 @@ export const PriceContainer = styled.div`
 `
 
 export const OfferPrice = styled.span`
-  color: lightgray;
+  font-size: 14px;
+  color: #222123;
 `
