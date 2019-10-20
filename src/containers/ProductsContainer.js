@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useFetchData } from '../hooks/useFetchData'
 import { ListOfProducts } from '../components/ListOfProducts'
 import { Filter } from '../components/Filter'
+import { Feedback } from '../components/Feedback'
 import { Loader } from '../styles/GlobalComponents'
 
 export const ProductsContainer = () => {
@@ -54,12 +55,12 @@ export const ProductsContainer = () => {
 
   return (
     <>
-      <Filter sort={setField} />
+      {!error && <Filter sort={setField} />}
       {
         loading
           ? <Loader />
           : error
-            ? <h1>error</h1>
+            ? <Feedback message={error.message} />
             : <ListOfProducts products={data} />
       }
     </>
