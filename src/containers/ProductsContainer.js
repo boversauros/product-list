@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ListOfProducts } from '../components/ListOfProducts'
 import { Filter } from '../components/Filter'
+import { Loader } from '../styles/GlobalComponents'
 
 export const ProductsContainer = () => {
   const [loading, setLoading] = useState(false)
@@ -70,7 +71,7 @@ export const ProductsContainer = () => {
   return (
     <>
       <Filter sort={setField} />
-      {loading ? <h2>Loading..</h2> : <ListOfProducts products={products} />}
+      {loading ? <Loader /> : <ListOfProducts products={products} />}
     </>
 
   )
