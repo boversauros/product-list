@@ -78,5 +78,5 @@ export const PriceContainer = styled.div`
 
 export const OfferPrice = styled.span`
   font-size: 14px;
-  color: #222123;
+  color: #D4D4D2;
 `
