@@ -1,42 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useFetchData } from '../hooks/useFetchData'
 import { ListOfProducts } from '../components/ListOfProducts'
 import { Filter } from '../components/Filter'
 import { Loader } from '../styles/GlobalComponents'
 
 export const ProductsContainer = () => {
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   const [field, setField] = useState('')
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        setLoading(true)
-        const { data } = await axios.get('https://api.myjson.com/bins/en2ik')
-        setProducts(data)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    getProducts()
-  }, [])
+  const [error, data, loading, setData] = useFetchData('https://api.myjson.com/bins/en2ik')
 
   useEffect(() => {
     if (field || field !== 'none') {
       const value = field.includes('price') ? 'price' : field.includes('name') ? 'name' : 'eyecatcher'
       const ascending = !field.includes('desc')
-      if (value === 'price') products.sort(sortByPrice(ascending))
-      else if (value === 'name') products.sort(sortByName(ascending, value))
-      else products.sort(sortByEyecatcher(ascending))
-      setProducts([...products])
+      if (value === 'price') data.sort(sortByPrice(ascending))
+      else if (value === 'name') data.sort(sortByName(ascending, value))
+      else data.sort(sortByEyecatcher(ascending))
+      setData([...data])
     }
   }, [field])
 
   const sortByName = (ascending = false, value) => {
-    console.log(value)
     if (ascending) {
       return (a, b) => (a[value] > b[value]) ? 1 : ((b[value] > a[value]) ? -1 : 0)
     } else {
@@ -71,7 +55,13 @@ export const ProductsContainer = () => {
   return (
     <>
       <Filter sort={setField} />
-      {loading ? <Loader /> : <ListOfProducts products={products} />}
+      {
+        loading
+          ? <Loader />
+          : error
+            ? <h1>error</h1>
+            : <ListOfProducts products={data} />
+      }
     </>
 
   )
