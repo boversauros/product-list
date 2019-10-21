@@ -15,7 +15,7 @@ export const Card = ({ product = {} }) => {
   const [show, ref] = useNearScreen()
 
   return (
-    <CardContainer ref={ref}>
+    <CardContainer ref={ref} onClick={() => window.open(product.url, '_blank')}>
       {show &&
         <MediaContainer>
           {product.eyecatcher &&
