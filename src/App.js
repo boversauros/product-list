@@ -1,11 +1,14 @@
 import React from 'react'
 import { GlobalStyle } from './styles/GlobalStyle'
+import { ProductsContainer } from './containers/ProductsContainer'
+import { Title } from './styles/GlobalComponents'
 
 export const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <h1>Hello World from App</h1>
+      <Title>Produktlista</Title>
+      <ProductsContainer />
     </div>
   )
 }
